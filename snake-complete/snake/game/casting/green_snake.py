@@ -1,9 +1,10 @@
 import constants
 
+from game.casting.actor import Actor
 from game.casting.snake import Snake
 from game.shared.point import Point
 
-class green_snake(Snake):
+class GreenSnake(Snake):
     
     """   A long limbless reptile.
     
@@ -14,5 +15,23 @@ class green_snake(Snake):
     """
     def __init__(self):
         super().__init__()
-        self._segments = []
-        self._prepare_body()
+        #self._segments[0]._position = Point(0, 200)
+        #self._segments = []
+        #self._prepare_body()
+
+    def _prepare_body(self):
+        x = int(constants.MAX_X / 2)
+        y = int(constants.MAX_Y / 4)
+
+        for i in range(constants.SNAKE_LENGTH):
+            position = Point(x - i * constants.CELL_SIZE, y)
+            velocity = Point(1 * constants.CELL_SIZE, 0) #original
+            text = "8" if i == 0 else "#"
+            color = constants.GREEN if i == 0 else constants.GREEN
+            
+            segment = Actor()
+            segment.set_position(position)
+            segment.set_velocity(velocity)
+            segment.set_text(text)
+            segment.set_color(color)
+            self._segments.append(segment)
