@@ -19,6 +19,20 @@ class GreenSnake(Snake):
         #self._segments = []
         #self._prepare_body()
 
+    def grow_tail(self, number_of_segments):
+        for i in range(number_of_segments):
+            tail = self._segments[-1]
+            velocity = tail.get_velocity()
+            offset = velocity.reverse()
+            position = tail.get_position().add(offset)
+            
+            segment = Actor()
+            segment.set_position(position)
+            segment.set_velocity(velocity)
+            segment.set_text("#")
+            segment.set_color(constants.GREEN)
+            self._segments.append(segment)
+
     def _prepare_body(self):
         x = int(constants.MAX_X / 2)
         y = int(constants.MAX_Y / 4)

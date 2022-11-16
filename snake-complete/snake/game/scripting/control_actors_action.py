@@ -1,4 +1,5 @@
 import constants
+from game.casting.snake import Snake
 from game.scripting.action import Action
 from game.shared.point import Point
 
@@ -32,24 +33,29 @@ class ControlActorsAction(Action):
         """
         #red_direction = self._direction
         #green_direction = self._direction
+        green_snake = cast.get_first_actor("snakes")
+        red_snake = cast.get_second_actor("snakes")
 
         # left
         if self._keyboard_service.is_key_down('a'):
             self.green_direction = Point(-constants.CELL_SIZE, 0)
+            green_snake.grow_tail(1)
         
         # right
         if self._keyboard_service.is_key_down('d'):
             self.green_direction = Point(constants.CELL_SIZE, 0)
+            green_snake.grow_tail(1)
         
         # up
         if self._keyboard_service.is_key_down('w'):
             self.green_direction = Point(0, -constants.CELL_SIZE)
+            green_snake.grow_tail(1)
         
         # down
         if self._keyboard_service.is_key_down('s'):
             self.green_direction = Point(0, constants.CELL_SIZE)
+            green_snake.grow_tail(1)
         
-        green_snake = cast.get_first_actor("snakes")
         green_snake.turn_head(self.green_direction)
 
         ### Move red snake
@@ -57,18 +63,21 @@ class ControlActorsAction(Action):
         # left
         if self._keyboard_service.is_key_down('j'):
             self.red_direction = Point(-constants.CELL_SIZE, 0)
+            red_snake.grow_tail(1)
         
         # right
         if self._keyboard_service.is_key_down('l'):
             self.red_direction = Point(constants.CELL_SIZE, 0)
+            red_snake.grow_tail(1)
         
         # up
         if self._keyboard_service.is_key_down('i'):
             self.red_direction = Point(0, -constants.CELL_SIZE)
+            red_snake.grow_tail(1)
         
         # down
         if self._keyboard_service.is_key_down('k'):
             self.red_direction = Point(0, constants.CELL_SIZE)
+            red_snake.grow_tail(1)
 
-        red_snake = cast.get_second_actor("snakes")
         red_snake.turn_head(self.red_direction)

@@ -1,7 +1,7 @@
 import constants
 
 from game.casting.cast import Cast
-from game.casting.food import Food  ### remove
+#from game.casting.food import Food  ### remove
 from game.casting.score import Score
 from game.casting.snake import Snake
 from game.casting.red_snake import RedSnake
@@ -22,7 +22,7 @@ def main():
     
     # create the cast
     cast = Cast()
-    cast.add_actor("foods", Food())    ## need to remove    
+    #cast.add_actor("foods", Food())    ## need to remove    
     cast.add_actor("snakes", GreenSnake())
     cast.add_actor("snakes", RedSnake())
     cast.add_actor("scores", Score())
