@@ -41,7 +41,7 @@ class RedSnake(Snake):
             position = Point(x - i * constants.CELL_SIZE, y)
             velocity = Point(1 * constants.CELL_SIZE, 0) #original
             text = "8" if i == 0 else "#"
-            color = constants.RED if i == 0 else constants.RED
+            color = constants.RED if i == 0 else constants.RED  #modified method from class Snake so snake is all red
             
             segment = Actor()
             segment.set_position(position)

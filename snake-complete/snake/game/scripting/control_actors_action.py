@@ -38,7 +38,7 @@ class ControlActorsAction(Action):
 
         # left
         if self._keyboard_service.is_key_down('a'):
-            self.green_direction = Point(-constants.CELL_SIZE, 0)
+            self.green_direction = Point(-constants.CELL_SIZE, 0)  #controls for green snake
             green_snake.grow_tail(1)
         
         # right
@@ -62,7 +62,7 @@ class ControlActorsAction(Action):
 
         # left
         if self._keyboard_service.is_key_down('j'):
-            self.red_direction = Point(-constants.CELL_SIZE, 0)
+            self.red_direction = Point(-constants.CELL_SIZE, 0)  #controls for red snake 
             red_snake.grow_tail(1)
         
         # right

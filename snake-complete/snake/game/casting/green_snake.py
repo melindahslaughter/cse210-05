@@ -41,8 +41,8 @@ class GreenSnake(Snake):
             position = Point(x - i * constants.CELL_SIZE, y)
             velocity = Point(1 * constants.CELL_SIZE, 0) #original
             text = "8" if i == 0 else "#"
-            color = constants.GREEN if i == 0 else constants.GREEN
-            
+            color = constants.GREEN if i == 0 else constants.GREEN #modified prepare body method from class Snake 
+                                                                     # so all of the snake is green. 
             segment = Actor()
             segment.set_position(position)
             segment.set_velocity(velocity)

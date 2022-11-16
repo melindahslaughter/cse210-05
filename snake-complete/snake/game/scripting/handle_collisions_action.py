@@ -62,15 +62,15 @@ class HandleCollisionsAction(Action):
         red_segments = red_snake.get_segments()[1:]
         
         for green_segment in green_segments:
-            if green_head.get_position().equals(green_segment.get_position()):
-                self._is_game_over = True
-            if red_head.get_position().equals(green_segment.get_position()):
+            if green_head.get_position().equals(green_segment.get_position()):  #sets instances when game is over 
+                self._is_game_over = True                                        # green snake meeting itself
+            if red_head.get_position().equals(green_segment.get_position()):      #red snake meeting green snake.
                 self._is_game_over = True
         
         for red_segment in red_segments:
-            if green_head.get_position().equals(red_segment.get_position()):
+            if green_head.get_position().equals(red_segment.get_position()):   #green snake meeting red snake
                 self._is_game_over = True
-            if red_head.get_position().equals(red_segment.get_position()):
+            if red_head.get_position().equals(red_segment.get_position()):     #red snake meeting itself
                 self._is_game_over = True
         
     def _handle_game_over(self, cast):
